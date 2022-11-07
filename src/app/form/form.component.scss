@@ -1,0 +1,52 @@
+.buttons{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    padding-top:30px;
+    justify-content: flex-end;
+    padding-right: 50px;
+}
+
+.table{
+    margin-top: 30px;
+    padding: 20px;
+
+}
+
+.table_head{
+    
+    th{
+        font-family: 'Poppins', sans-serif;
+        color: rgb(97, 98, 98);
+   }
+   th:hover{
+    color: rgb(255, 255, 255);
+     background-color: black;
+    }
+}
+
+.sidebar{
+    font-family: 'Poppins', sans-serif;
+    color: rgb(34, 34, 34);
+
+    .inputs{
+        display: flex;
+        justify-content: center;     
+        
+        label{
+            padding-bottom: 10px;
+            padding-top: 20px;
+        }
+    }
+
+    .field{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    input{
+        width: 350px;
+        height: 40px;
+        border-radius: 5px;
+    }
+}

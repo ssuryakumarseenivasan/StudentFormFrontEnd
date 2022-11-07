@@ -1,0 +1,93 @@
+<div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-3"></div>
+        <div class="col-3"></div>
+        <div class="col-3 buttons">
+            <p-button label="Create" (click)="visibleSidebar2 = true" pTooltip="Add Student"></p-button>
+            
+        </div>
+    </div>
+    
+    <div class="row table">
+        <div class="card">
+            <p-table  [scrollable]="true" scrollHeight="400px">
+                <ng-template pTemplate="header">
+                    <tr style="padding-left:50px" class="table_head">
+                        <th style="min-width:30px">Student Name</th>
+                        <th style="min-width:100px">Age</th>
+                        <th style="min-width:200px">Department</th>
+                        <th style="min-width:300px">Contect Number</th>
+                        <th style="min-width:300px">Address</th>
+                        <th style="min-width:200px">Edit</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-customer>
+                    <tr>
+                        <td style="min-width:200px">suryakumar</td>
+                        <td style="min-width:200px">19</td>
+                        <td style="min-width:200px">Computer</td>
+                        <td style="min-width:200px">9361625034</td>
+                        <td style="min-width:200px">chennai</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+
+
+</div>
+<div class="sidebar">
+    <p-sidebar [(visible)]="visibleSidebar2" position="right" [baseZIndex]="100000" >
+       <div class="row">
+        <p>ADD NEW STUDENT</p>
+       </div>
+       <div class="row">
+        <div class="col inputs">
+            <div class="field">
+                <label for="username2" class="block">Student name</label>
+                <input id="username2" type="username" placeholder="student name" aria-describedby="username2-help" class="ng-dirty" pInputText />
+            </div>
+        </div>
+       </div>
+       <div class="row">
+        <div class="col inputs">
+            <div class="field">
+                <label for="age" class="block">Age</label>
+                <input id="age" type="username" aria-describedby="username2-help" placeholder="student age" class="ng-dirty" pInputText />
+            </div>
+        </div>
+       </div>
+       <div class="row">
+        <div class="col inputs">
+            <div class="field">
+                <label for="department" class="block">Department</label>
+                <p-dropdown name="department" placeholder="Select Dept" optionLabel="name" [showClear]="true"></p-dropdown>
+            </div>
+        </div>
+       </div>
+       <div class="row">
+        <div class="col inputs">
+            <div class="field">
+                <label for="phonenumber" class="block">Phone number</label>
+                <p-inputNumber name="phonenumber" placeholder="Phone number" mode="decimal" inputId="withoutgrouping" [useGrouping]="false"></p-inputNumber>
+            </div>
+        </div>
+       </div>
+       <div class="row">
+        <div class="col inputs">
+            <div class="field">
+                <label for="Address" class="block">Address</label>
+                <input id="Address" type="username" aria-describedby="username2-help" placeholder="Address" class="ng-dirty" pInputText />
+            </div>
+        </div>
+       </div>
+       <div class="row">
+        <div class="col-4"></div>
+       <div class="col-4"></div>
+        <div class="col-4 buttons">
+            <p-button  label="Submit" pTooltip="Submit Form"></p-button>
+        </div>
+       </div>
+    </p-sidebar>
+</div>

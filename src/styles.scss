@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400&display=swap');
+
+
+
+.buttons{
+    button.p-ripple.p-element.p-button.p-component {
+        width: 150px;
+        height: 40px;
+        border-radius: 0%;
+        
+    }
+}
+.ng-trigger.ng-trigger-panelState.ng-tns-c91-0.p-sidebar.p-sidebar-active.p-sidebar-right.ng-star-inserted {
+    width: 400px;
+    background-color: rgb(190, 190, 190);
+}
+
+.ng-tns-c57-1.p-dropdown.p-component.p-dropdown-clearable {
+    width: 350px;
+    height: 40px;
+    padding-top: 1px;
+}
+
+.p-dropdown .p-dropdown-label.p-placeholder {
+    color: #6c757d;
+    padding-top: 5px;
+}
+input#withoutgrouping {
+    width: 350px;
+    height: 40px;
+}
