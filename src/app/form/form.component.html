@@ -1,4 +1,4 @@
-<div>
+<div class="tablelists" >
     <div class="row">
         <div class="col-3"></div>
         <div class="col-3"></div>
@@ -9,26 +9,29 @@
         </div>
     </div>
     
-    <div class="row table">
+    <div class="row table" >
         <div class="card">
-            <p-table  [scrollable]="true" scrollHeight="400px">
+            <p-table [value]="studentsList"  [scrollable]="true" scrollHeight="400px">
                 <ng-template pTemplate="header">
-                    <tr style="padding-left:50px" class="table_head">
+                    <tr  class="table_head">
                         <th style="min-width:30px">Student Name</th>
                         <th style="min-width:100px">Age</th>
                         <th style="min-width:200px">Department</th>
-                        <th style="min-width:300px">Contect Number</th>
-                        <th style="min-width:300px">Address</th>
-                        <th style="min-width:200px">Edit</th>
+                        <th style="min-width:200px">Contect Number</th>
+                        <th style="min-width:250px">Address</th>
+                        <th style="min-width:350px">Edit</th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-customer>
-                    <tr>
-                        <td style="min-width:200px">suryakumar</td>
-                        <td style="min-width:200px">19</td>
-                        <td style="min-width:200px">Computer</td>
-                        <td style="min-width:200px">9361625034</td>
-                        <td style="min-width:200px">chennai</td>
+                <ng-template pTemplate="body" let-student>
+                    <tr class="trrow">
+                        <td style="min-width:30px">{{student.name}}</td>
+                        <td style="min-width:100px">{{student.age}}</td>
+                        <td style="min-width:200px">{{student.deptName}}</td>
+                        <td style="min-width:200px">{{student.phonenumber}}</td>
+                        <td style="min-width:250px">{{student.address}}</td>
+                        <td style="min-width:350px"> 
+                            <button class="btn1" pButton pRipple label="Edit" (click)="updateStudent(student.id)"  icon="pi pi-user-edit"></button>
+                            <button class="btn2" pButton pRipple label="Delete"  (click)="deleteStudent(student.id)" icon="pi pi-trash"></button></td>
                     </tr>
                 </ng-template>
             </p-table>
@@ -37,16 +40,16 @@
 
 
 </div>
-<div class="sidebar">
-    <p-sidebar [(visible)]="visibleSidebar2" position="right" [baseZIndex]="100000" >
+<div class="sidebar" [formGroup]="students">
+    <p-sidebar [(visible)]="visibleSidebar2" position="right"  [baseZIndex]="100000" >
        <div class="row">
-        <p>ADD NEW STUDENT</p>
+        <p style="color:black;font-weight:bold;">ADD NEW STUDENT</p>
        </div>
        <div class="row">
-        <div class="col inputs">
+        <div class="col inputs" >
             <div class="field">
                 <label for="username2" class="block">Student name</label>
-                <input id="username2" type="username" placeholder="student name" aria-describedby="username2-help" class="ng-dirty" pInputText />
+                <input id="username2" formControlName="name" type="username" placeholder="student name" aria-describedby="username2-help" class="ng-dirty" pInputText />
             </div>
         </div>
        </div>
@@ -54,7 +57,7 @@
         <div class="col inputs">
             <div class="field">
                 <label for="age" class="block">Age</label>
-                <input id="age" type="username" aria-describedby="username2-help" placeholder="student age" class="ng-dirty" pInputText />
+                <input id="age" name="age"  formControlName="age" aria-describedby="username2-help" placeholder="student age" class="ng-dirty" pInputText />
             </div>
         </div>
        </div>
@@ -62,7 +65,7 @@
         <div class="col inputs">
             <div class="field">
                 <label for="department" class="block">Department</label>
-                <p-dropdown name="department" placeholder="Select Dept" optionLabel="name" [showClear]="true"></p-dropdown>
+                <p-dropdown name="department" [options]="items" placeholder="Select Dept" formControlName="dept" optionValue="id" optionLabel="department" [showClear]="true"></p-dropdown>
             </div>
         </div>
        </div>
@@ -70,7 +73,10 @@
         <div class="col inputs">
             <div class="field">
                 <label for="phonenumber" class="block">Phone number</label>
-                <p-inputNumber name="phonenumber" placeholder="Phone number" mode="decimal" inputId="withoutgrouping" [useGrouping]="false"></p-inputNumber>
+                <input name="phonenumber" type="username" aria-describedby="username2-help" formControlName="phonenumber" placeholder="Phone number" class="ng-dirty" pInputText />
+
+
+                <!-- <p-inputNumber name="phonenumber" placeholder="Phone number" formControlName="phonenumber" mode="decimal" inputId="withoutgrouping" [useGrouping]="false"></p-inputNumber> -->
             </div>
         </div>
        </div>
@@ -78,7 +84,7 @@
         <div class="col inputs">
             <div class="field">
                 <label for="Address" class="block">Address</label>
-                <input id="Address" type="username" aria-describedby="username2-help" placeholder="Address" class="ng-dirty" pInputText />
+                <input name="Address" type="username" aria-describedby="username2-help" formControlName="Address" placeholder="Address" class="ng-dirty" pInputText />
             </div>
         </div>
        </div>
@@ -86,7 +92,7 @@
         <div class="col-4"></div>
        <div class="col-4"></div>
         <div class="col-4 buttons">
-            <p-button  label="Submit" pTooltip="Submit Form"></p-button>
+            <p-button  label="Submit" pTooltip="Submit Form" (click)="submitform()"></p-button>
         </div>
        </div>
     </p-sidebar>

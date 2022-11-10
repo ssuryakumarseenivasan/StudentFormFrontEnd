@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {InputTextModule} from 'primeng/inputtext';
@@ -36,6 +36,7 @@ import {InputNumberModule} from 'primeng/inputnumber';
     ProgressBarModule,
     DropdownModule,
     DialogModule,
+    ReactiveFormsModule,
     ContextMenuModule,
     MultiSelectModule,
     SliderModule,
