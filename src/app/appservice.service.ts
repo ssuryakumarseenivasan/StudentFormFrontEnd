@@ -10,22 +10,22 @@ export class AppServiceService {
 
   constructor(private httpclient: HttpClient) { }
 
-  submitstudentform(data:any){
-  return this.httpclient.post(environment.appUrl +"/Student/insertStudents", data);
-}
-getDept(){
+  submitstudentform(data: any) {
+    return this.httpclient.post(environment.appUrl + "/Student/insertStudents", data);
+  }
+  getDept() {
     // return this.httpclient.get(environment.appUrl + "/",data);
     return this.httpclient.get(environment.appUrl + "/Student/getdepartmentModels");
   }
 
-  getStudents(){
+  getStudents() {
     return this.httpclient.get(environment.appUrl + "/Student/Getstudent")
   }
-  updateStudents(){
+  updateStudents() {
     return this.httpclient.get(environment.appUrl + "/Student/updateStudent");
   }
-  deleteStudent(id:any){
-    console.log(id,"gokulkannan");
- return this.httpclient.put(environment.appUrl + "/Student/deleteStudents",{id});
+  deleteStudent(id: any) {
+    console.log(id, "gokulkannan");
+    return this.httpclient.put(environment.appUrl + "/Student/deleteStudents", { id });
   }
 }

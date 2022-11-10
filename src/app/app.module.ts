@@ -23,13 +23,15 @@ import { SidebarModule } from 'primeng/sidebar';
 import {TooltipModule} from 'primeng/tooltip';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import {InputNumberModule} from 'primeng/inputnumber';
+import { ListComponent } from './list/list.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponent
+    FormComponent,
+    ListComponent
   ],
   imports: [
     ToggleButtonModule,

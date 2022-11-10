@@ -1,0 +1,32 @@
+
+    <div class="row table">
+        <div class="card">
+            <p-table [value]="studentsList" [scrollable]="true" scrollHeight="400px">
+                <ng-template pTemplate="header">
+                    <tr class="table_head">
+                        <th style="min-width:30px">Student Name</th>
+                        <th style="min-width:50px">Age</th>
+                        <th style="min-width:150px">Department</th>
+                        <th style="min-width:150px">Contect Number</th>
+                        <th style="min-width:150px">Address</th>
+                        <th style="min-width:250px">Edit & Delete</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-student>
+                    <tr class="trrow">
+                        <td style="min-width:30px">{{student.name}}</td>
+                        <td style="min-width:50px">{{student.age}}</td>
+                        <td style="min-width:150px">{{student.deptName}}</td>
+                        <td style="min-width:150px">{{student.phonenumber}}</td>
+                        <td style="min-width:150px">{{student.address}}</td>
+                        <td style="min-width:250px">
+                            <button class="btn1" pButton pRipple label="Edit" (click)="updateStudent(student.id)"
+                                icon="pi pi-user-edit"></button>
+                            <button class="btn2" pButton pRipple label="Delete" (click)="deleteStudent(student.id)"
+                                icon="pi pi-trash"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>

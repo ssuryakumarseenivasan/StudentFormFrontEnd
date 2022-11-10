@@ -1,73 +1,84 @@
-.buttons{
+.buttons {
     display: flex;
     flex-direction: row;
     column-gap: 20px;
-    padding-top:30px;
-    justify-content: flex-end;
-    padding-right: 50px;
+    margin-top: 50px;
+    justify-content: center;
+
 }
 
-.table{
-    margin-top: 30px;
+.btnss {
+    margin-right: 50px;
+}
+
+.table {
+    margin-top: 50px;
     padding: 20px;
+    margin-left: 20px;
+    width: 1500px;
+
     // border:1px solid white;
-    td{
-        background-color:rgb(255, 255, 255);
-        color:blue;
-        border-bottom:1px solid rgb(192, 190, 190);
+    td {
+        background-color: rgb(255, 255, 255);
+        color: blue;
+        border-bottom: 1px solid rgb(192, 190, 190);
     }
 }
 
-.table_head{
+.table_head {
 
-    th{
+    th {
         font-family: 'Poppins', sans-serif;
         color: rgb(0, 0, 0);
         background-color: rgb(255, 255, 255);
         // display: flex;
         // justify-content: flex-start;
-   }
-   th:hover{
-    color: rgb(255, 255, 255);
-     background-color: black;
     }
-   
+
+    th:hover {
+        color: rgb(255, 255, 255);
+        background-color: black;
+    }
+
 }
 
 
 
-.sidebar{
+.sidebar {
     font-family: 'Poppins', sans-serif;
     color: rgb(34, 34, 34);
 
-    .inputs{
+    .inputs {
         display: flex;
-        justify-content: center;     
-        
-        label{
+        justify-content: center;
+
+        label {
             padding-bottom: 10px;
             padding-top: 15px;
             color: rgb(0, 0, 0);
         }
     }
 
-    .field{
+    .field {
         display: flex;
         flex-direction: column;
         color: rgb(0, 0, 0);
     }
-    input{
+
+    input {
         width: 350px;
         height: 40px;
         border-radius: 5px;
     }
 }
 
-.btn1{
+.btn1 {
     margin-right: 20px;
-  }
+}
 
 
-  .tablelists{
-    width: 100% !important;
-  }
+.tablelists {
+    width: 99% !important;
+    display: flex;
+    flex-direction: column;
+}

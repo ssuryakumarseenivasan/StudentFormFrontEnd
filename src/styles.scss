@@ -4,16 +4,17 @@
 
 
 
-.buttons{
+.buttons {
     button.p-ripple.p-element.p-button.p-component {
         width: 150px;
         height: 40px;
         border-radius: 0%;
-        
+
     }
 }
+
 .ng-trigger.ng-trigger-panelState.ng-tns-c91-0.p-sidebar.p-sidebar-active.p-sidebar-right.ng-star-inserted {
-    width: 400px;
+    width: 500px !important;
     background-color: rgb(255, 255, 255);
     // height: 700vh;
 }
@@ -28,20 +29,37 @@
     color: #6c757d;
     padding-top: 5px;
 }
+
 input#withoutgrouping {
     width: 350px;
     height: 40px;
 }
 
+button.p-element.btn2.p-button.p-component {
+    background-color: red;
+    border: 1px solid red;
+}
+
+button.p-element.btn1.p-button.p-component {
+    background-color: #6ece6e;
+    border: 1px solid #6ece6e;
+}
+
+button.p-ripple.p-element.btnss.p-button.p-component {
+    background-color: #6ece6e;
+    border: 1px solid #6ece6e;
+}
+
 button.p-element.p-button.p-component {
     width: 100px;
     height: 35px;
-   
+
 }
 
 button.p-element.btn2.p-button.p-component {
     padding-left: 10px;
 }
+
 .card {
     border: none;
 }
