@@ -9,25 +9,23 @@
         width: 150px;
         height: 40px;
         border-radius: 0%;
+        margin-right: 4px;
 
     }
 }
 
-.ng-trigger.ng-trigger-panelState.ng-tns-c91-0.p-sidebar.p-sidebar-active.p-sidebar-right.ng-star-inserted {
-    width: 500px !important;
-    background-color: rgb(255, 255, 255);
-    // height: 700vh;
-}
-
-.ng-tns-c57-1.p-dropdown.p-component.p-dropdown-clearable {
+// .ng-trigger.ng-trigger-panelState.ng-tns-c91-0.p-sidebar.p-sidebar-active.p-sidebar-right.ng-star-inserted {
+//     width: 800px !important;
+//     background-color: rgb(255, 255, 255);
+//     // height: 700vh;
+// }
+.ng-tns-c60-1.p-dropdown.p-component.p-dropdown-clearable {
     width: 350px;
-    height: 40px;
-    padding-top: 1px;
+    height: 45px;
 }
-
 .p-dropdown .p-dropdown-label.p-placeholder {
     color: #6c757d;
-    padding-top: 5px;
+    // padding-top: 10px;
 }
 
 input#withoutgrouping {

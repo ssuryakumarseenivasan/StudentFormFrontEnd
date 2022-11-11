@@ -18,11 +18,13 @@ export class AppServiceService {
     return this.httpclient.get(environment.appUrl + "/Student/getdepartmentModels");
   }
 
+  
   getStudents() {
     return this.httpclient.get(environment.appUrl + "/Student/Getstudent")
   }
-  updateStudents() {
-    return this.httpclient.get(environment.appUrl + "/Student/updateStudent");
+
+  updateStudents(data:any) {
+    return this.httpclient.put(environment.appUrl + "/Student/updateStudent",data);
   }
   deleteStudent(id: any) {
     console.log(id, "gokulkannan");

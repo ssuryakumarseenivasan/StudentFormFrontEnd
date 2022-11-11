@@ -4,7 +4,7 @@
         <div class="col-3"></div>
         <div class="col-3"></div>
         <div class="col-3 buttons">
-            <p-button label="Create" (click)="visibleSidebar2 = true" pTooltip="Add Student"></p-button>
+            <p-button label="Create" (click)="visibleSidebar()" pTooltip="Add Student"></p-button>
             
         </div>
     </div>
@@ -19,7 +19,8 @@
                         <th style="min-width:200px">Department</th>
                         <th style="min-width:200px">Contect Number</th>
                         <th style="min-width:250px">Address</th>
-                        <th style="min-width:350px">Edit</th>
+                        <th style="min-width:80px">Edit</th>
+                        <th style="min-width:80px">Delete</th>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-student>
@@ -29,9 +30,12 @@
                         <td style="min-width:200px">{{student.deptName}}</td>
                         <td style="min-width:200px">{{student.phonenumber}}</td>
                         <td style="min-width:250px">{{student.address}}</td>
-                        <td style="min-width:350px"> 
-                            <button class="btn1" pButton pRipple label="Edit" (click)="updateStudent(student.id)"  icon="pi pi-user-edit"></button>
-                            <button class="btn2" pButton pRipple label="Delete"  (click)="deleteStudent(student.id)" icon="pi pi-trash"></button></td>
+                        <td style="min-width:80px"> 
+                            <button class="btn1" pButton pRipple label="Edit" (click)="updateStudent(student)"  icon="pi pi-user-edit"></button>
+                        </td>
+                        <td style="min-width:80px">
+                            <button class="btn2" pButton pRipple label="Delete"  (click)="deleteStudent(student.id)" icon="pi pi-trash"></button>
+                        </td>    
                     </tr>
                 </ng-template>
             </p-table>
@@ -40,60 +44,61 @@
 
 
 </div>
-<div class="sidebar" [formGroup]="students">
-    <p-sidebar [(visible)]="visibleSidebar2" position="right"  [baseZIndex]="100000" >
-       <div class="row">
-        <p style="color:black;font-weight:bold;">ADD NEW STUDENT</p>
-       </div>
-       <div class="row">
-        <div class="col inputs" >
-            <div class="field">
-                <label for="username2" class="block">Student name</label>
-                <input id="username2" formControlName="name" type="username" placeholder="student name" aria-describedby="username2-help" class="ng-dirty" pInputText />
-            </div>
-        </div>
-       </div>
-       <div class="row">
-        <div class="col inputs">
-            <div class="field">
-                <label for="age" class="block">Age</label>
-                <input id="age" name="age"  formControlName="age" aria-describedby="username2-help" placeholder="student age" class="ng-dirty" pInputText />
-            </div>
-        </div>
-       </div>
-       <div class="row">
-        <div class="col inputs">
-            <div class="field">
-                <label for="department" class="block">Department</label>
-                <p-dropdown name="department" [options]="items" placeholder="Select Dept" formControlName="dept" optionValue="id" optionLabel="department" [showClear]="true"></p-dropdown>
-            </div>
-        </div>
-       </div>
-       <div class="row">
-        <div class="col inputs">
-            <div class="field">
-                <label for="phonenumber" class="block">Phone number</label>
-                <input name="phonenumber" type="username" aria-describedby="username2-help" formControlName="phonenumber" placeholder="Phone number" class="ng-dirty" pInputText />
 
 
-                <!-- <p-inputNumber name="phonenumber" placeholder="Phone number" formControlName="phonenumber" mode="decimal" inputId="withoutgrouping" [useGrouping]="false"></p-inputNumber> -->
+<p-sidebar [(visible)]="visibleSidebar2" position="right" [style]="{width:'26em'}"  [baseZIndex]="100000" >
+    <div class="sidebar"  [formGroup]="students">
+        <div class="row">
+            <p style="color:black;font-weight:bold;"> STUDENT FORM</p>
+           </div>
+           <div class="row">
+            <div class="col inputs" >
+                <div class="field">
+                    <label for="username2" class="block">Student name</label>
+                    <input id="username2" formControlName="name" type="username" placeholder="student name" aria-describedby="username2-help" class="ng-dirty" pInputText />
+                </div>
             </div>
-        </div>
-       </div>
-       <div class="row">
-        <div class="col inputs">
-            <div class="field">
-                <label for="Address" class="block">Address</label>
-                <input name="Address" type="username" aria-describedby="username2-help" formControlName="Address" placeholder="Address" class="ng-dirty" pInputText />
+           </div>
+           <div class="row">
+            <div class="col inputs">
+                <div class="field">
+                    <label for="age" class="block">Age</label>
+                    <input id="age" name="age"  formControlName="age" aria-describedby="username2-help" placeholder="student age" class="ng-dirty" pInputText />
+                </div>
             </div>
-        </div>
-       </div>
-       <div class="row">
-        <div class="col-4"></div>
-       <div class="col-4"></div>
-        <div class="col-4 buttons">
-            <p-button  label="Submit" pTooltip="Submit Form" (click)="submitform()"></p-button>
-        </div>
-       </div>
-    </p-sidebar>
-</div>
+           </div>
+           <div class="row">
+            <div class="col inputs">
+                <div class="field">
+                    <label for="department" class="block">Department</label>
+                    <p-dropdown name="department" [options]="items" placeholder="Select Dept" formControlName="dept" optionValue="id" optionLabel="department" [showClear]="true"></p-dropdown>
+                </div>
+            </div>
+           </div>
+           <div class="row">
+            <div class="col inputs">
+                <div class="field">
+                    <label for="phonenumber" class="block">Phone number</label>
+                    <input name="phonenumber" type="username" aria-describedby="username2-help" formControlName="phonenumber" placeholder="Phone number" class="ng-dirty" pInputText />
+       
+       
+                    <!-- <p-inputNumber name="phonenumber" placeholder="Phone number" formControlName="phonenumber" mode="decimal" inputId="withoutgrouping" [useGrouping]="false"></p-inputNumber> -->
+                </div>
+            </div>
+           </div>
+           <div class="row">
+            <div class="col inputs">
+                <div class="field">
+                    <label for="Address" class="block">Address</label>
+                    <input name="Address" type="username" aria-describedby="username2-help" formControlName="Address" placeholder="Address" class="ng-dirty" pInputText />
+                </div>
+            </div>
+           </div>
+           <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6 buttons">
+                <p-button  label="Submit" pTooltip="Submit Form" (click)="submitform()"></p-button>
+            </div>
+          </div>
+    </div>
+ </p-sidebar>

@@ -59,9 +59,9 @@ export class ListComponent implements OnInit {
     this.studid = studentid;
     console.log(this.studid)
     this.router.navigate([this.studid],{relativeTo : this.aRoute})
-    this.appservice.updateStudents().subscribe({
+    // this.appservice.updateStudents().subscribe({
     
-     })
+    //  })
   }
   
 

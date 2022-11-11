@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {ConfirmPopupModule} from 'primeng/confirmpopup';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,41 @@ import {TooltipModule} from 'primeng/tooltip';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import {InputNumberModule} from 'primeng/inputnumber';
 import { ListComponent } from './list/list.component';
+import { NgxUiLoaderConfig, NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+
+
+const ngx: NgxUiLoaderConfig = {
+  "bgsColor": "red",
+  "bgsOpacity": 0.5,
+  "bgsPosition": "bottom-right",
+  "bgsSize": 60,
+  "bgsType": "ball-spin-clockwise",
+  "blur": 7,
+  "delay": 0,
+  "fastFadeOut": true,
+  "fgsColor": "#1715cb",
+  "fgsPosition": "center-center",
+  "fgsSize": 140,
+  "fgsType": "wandering-cubes",
+  "gap": 24,
+  "logoPosition": "center-center",
+  "logoSize": 120,
+  "logoUrl": "",
+  "masterLoaderId": "master",
+  "overlayBorderRadius": "0",
+  "overlayColor": "rgba(40, 40, 40, 0.8)",
+  "pbColor": "red",
+  "pbDirection": "ltr",
+  "pbThickness": 3,
+  "hasProgressBar": true,
+  "text": "",
+  "textColor": "#FFFFFF",
+  "textPosition": "center-center",
+  "maxTime": -1,
+  "minTime": 300
+}
+
+
 
 
 
@@ -35,6 +71,7 @@ import { ListComponent } from './list/list.component';
   ],
   imports: [
     ToggleButtonModule,
+    ConfirmPopupModule,
     ProgressBarModule,
     DropdownModule,
     DialogModule,
@@ -55,7 +92,10 @@ import { ListComponent } from './list/list.component';
     SidebarModule,
     TooltipModule,
     DynamicDialogModule,
-    InputNumberModule
+    InputNumberModule,
+    NgxUiLoaderHttpModule.forRoot({ showForeground: true }),
+    NgxUiLoaderModule.forRoot(ngx),
+
     ],
   providers: [],
   bootstrap: [AppComponent]

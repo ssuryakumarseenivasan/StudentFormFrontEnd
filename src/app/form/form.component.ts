@@ -21,6 +21,7 @@ export class FormComponent implements OnInit {
    studid :any;
   items:any = [];
   studeid:any
+  partialType = "";
   constructor(private primengConfig: PrimeNGConfig,private fb: FormBuilder, private confirmationService: ConfirmationService, private router: Router, private messageservice: MessageService,private appservice : AppServiceService, private aRoute : ActivatedRoute) { 
     
   // this.items = [];
@@ -48,6 +49,7 @@ export class FormComponent implements OnInit {
       dept: [null, [Validators.required]],
       phonenumber: [null, [Validators.required]],
       Address: [null, [Validators.required]],
+      id: [null, [Validators.required]],
     })
 
    
@@ -61,6 +63,7 @@ export class FormComponent implements OnInit {
       });
   }
   deleteStudent(studentid:any){
+    
     this.studeid = studentid;
     console.log(studentid)
     this.appservice.deleteStudent(this.studeid).subscribe({
@@ -85,29 +88,58 @@ export class FormComponent implements OnInit {
     })
 }
 
-  
+  visibleSidebar(){
+    this. visibleSidebar2 = true; 
+    this.partialType = "save"
+  }
 
 
   submitform(){
-    this.appservice.submitstudentform(this.students.value).subscribe({
-      next: (data: any) => {
-        console.log("dddddddddddddddddddddddddd successs")
-        this.router.navigate(['form'])
-    },
-    error: () => {
-      console.log("errrrrrrrrrr ====   ")
-    }
-  })
-}
 
-updateStudent(studentid:any){
-  this.studid = studentid;
-  console.log(this.studid)
-  this.router.navigate([this.studid],{relativeTo : this.aRoute})
-  this.appservice.updateStudents().subscribe({
-  
-   })
-}
+    if(this.partialType == 'save'){
+
+        this.appservice.submitstudentform(this.students.value).subscribe({
+          next: (data: any) => {
+          this.getTableData()
+
+        },
+        error: () => {
+          console.log("errrrrrrrrrr ====   ")
+        }
+      })
+
+    }else{
+
+      console.log(this.students.value,'formvalue')
+      this.appservice.updateStudents(this.students.value).subscribe({
+        next: (data: any) => {
+        this.getTableData()
+      },
+      error: () => {
+        console.log("errrrrrrrrrr ====   ")
+      }
+    })
+    } 
+      
+
+  }
+
+  updateStudent(student:any){
+    this.partialType = "edit"
+
+    this. visibleSidebar2 = true
+    console.log(student,'lllllllllllllllllllll');
+
+    this.students.patchValue({
+      name : student.name,
+      age: student.age,
+      dept: student.dept,
+      phonenumber: student.phonenumber,
+      Address: student.address,
+      id: student.id,
+    })
+
+  }
 
 
 }
