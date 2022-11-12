@@ -18,7 +18,6 @@ export class AppServiceService {
     return this.httpclient.get(environment.appUrl + "/Student/getdepartmentModels");
   }
 
-  
   getStudents() {
     return this.httpclient.get(environment.appUrl + "/Student/Getstudent")
   }
