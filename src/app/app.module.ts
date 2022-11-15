@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {ConfirmPopupModule} from 'primeng/confirmpopup';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
@@ -26,8 +25,7 @@ import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import {InputNumberModule} from 'primeng/inputnumber';
 import { ListComponent } from './list/list.component';
 import { NgxUiLoaderConfig, NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
-
-
+  
 const ngx: NgxUiLoaderConfig = {
   "bgsColor": "red",
   "bgsOpacity": 0.5,
@@ -97,7 +95,7 @@ const ngx: NgxUiLoaderConfig = {
     NgxUiLoaderModule.forRoot(ngx),
 
     ],
-  providers: [],
-  bootstrap: [AppComponent]
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

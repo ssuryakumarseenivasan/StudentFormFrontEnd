@@ -1,19 +1,19 @@
-<div class="tablelists" >
+<div class="tablelists">
     <div class="row">
         <div class="col-3"></div>
         <div class="col-3"></div>
         <div class="col-3"></div>
         <div class="col-3 buttons">
-            <p-button label="Create" (click)="visibleSidebar()" pTooltip="Add Student"></p-button>
-            
+            <p-button label="Create" (click)="visibleSidebar()"></p-button>
+
         </div>
     </div>
-    
-    <div class="row table" >
+
+    <div class="row table">
         <div class="card">
-            <p-table [value]="studentsList"  [scrollable]="true" scrollHeight="400px">
+            <p-table [value]="studentsList" [scrollable]="true" scrollHeight="400px">
                 <ng-template pTemplate="header">
-                    <tr  class="table_head">
+                    <tr class="table_head">
                         <th style="min-width:30px">Student Name</th>
                         <th style="min-width:100px">Age</th>
                         <th style="min-width:200px">Department</th>
@@ -24,20 +24,22 @@
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-student>
-                    <tr class="trrow">
+                    <tr class="trrow" (click)="gettable(student)">
                         <td style="min-width:30px">{{student.name}}</td>
                         <td style="min-width:100px">{{student.age}}</td>
                         <td style="min-width:200px">{{student.deptName}}</td>
                         <td style="min-width:200px">{{student.phonenumber}}</td>
                         <td style="min-width:250px">{{student.address}}</td>
-                        <td style="min-width:80px"> 
-                            <button class="btn1" pButton pRipple label="Edit" (click)="updateStudent(student,student.id)"  icon="pi pi-user-edit"></button>
+                        <td style="min-width:80px">
+                            <button class="btn1" pButton pRipple label="Edit"
+                                (click)="updateStudent(student,student.id)" icon="pi pi-user-edit"></button>
                         </td>
                         <td style="min-width:80px">
-                            <button class="btn2" pButton pRipple label="Delete"  (click)="deleteStudent(student.id,$event)" icon="pi pi-trash"></button>
+                            <button class="btn2" pButton pRipple label="Delete"
+                                (click)="deleteStudent(student.id,$event)" icon="pi pi-trash"></button>
                             <p-toast [hideTransitionOptions]="'300ms'" [showTransitionOptions]="'300ms'"></p-toast>
                             <p-confirmPopup></p-confirmPopup>
-                        </td>    
+                        </td>
                     </tr>
                 </ng-template>
             </p-table>
@@ -48,59 +50,131 @@
 </div>
 
 
-<p-sidebar [(visible)]="visibleSidebar2" position="right" [style]="{width:'26em'}"  [baseZIndex]="100000" >
-    <div class="sidebar"  [formGroup]="students">
+<p-sidebar [(visible)]="visibleSidebar2" position="right" [style]="{width:'26em'}" [baseZIndex]="100000">
+    <div class="sidebar" [formGroup]="students">
         <div class="row">
             <p style="color:black;font-weight:bold;"> STUDENT FORM</p>
-           </div>
-           <div class="row">
-            <div class="col inputs" >
-                <div class="field">
+        </div>
+        <div class="row">
+            <div class="col inputs">
+                <div class="field" style="position:relative;">
                     <label for="username2" class="block">Student name</label>
-                    <input id="username2" formControlName="name" type="username" placeholder="student name" aria-describedby="username2-help" class="ng-dirty" pInputText />
+                    <input id="username2" formControlName="name" type="username" placeholder="student name"
+                        aria-describedby="username2-help" class="ng-dirty" pInputText />
+                    <div style="height:5px;">
+                        <ng-container *ngIf="form['name'].invalid && (form['name'].touched || form['name'].dirty)">
+                            <p style="color:red;" *ngIf="form['name'].errors?.required"> Name is
+                                required</p>
+                        </ng-container>
+                    </div>
                 </div>
             </div>
-           </div>
-           <div class="row">
+        </div>
+        <div class="row">
             <div class="col inputs">
                 <div class="field">
                     <label for="age" class="block">Age</label>
-                    <input id="age" name="age"  formControlName="age" aria-describedby="username2-help" placeholder="student age" class="ng-dirty" pInputText />
+                    <input id="age" name="age" minlength="1" maxlength="2" type="" formControlName="age"
+                        aria-describedby="username2-help" placeholder="student age" class="ng-dirty" pInputText />
+
+                    <div style="height:5px;padding:3px;">
+                        <ng-container *ngIf="form['age'].invalid && (form['age'].touched || form['age'].dirty)">
+                            <p style="color:red;" *ngIf="form['age'].errors?.required"> age is required</p>
+                            <p style="color:red" *ngIf="form['type'].errors?.minlength"> age should be length of 2</p>
+                        </ng-container>
+                    </div>
                 </div>
             </div>
-           </div>
-           <div class="row">
+        </div>
+        <div class="row">
             <div class="col inputs">
                 <div class="field">
                     <label for="department" class="block">Department</label>
-                    <p-dropdown name="department" [options]="items" placeholder="Select Dept" formControlName="dept" optionValue="id" optionLabel="department" [showClear]="true"></p-dropdown>
+                    <p-dropdown name="department" [options]="items" placeholder="Select Dept" formControlName="dept"
+                        optionValue="id" optionLabel="department" [showClear]="true"></p-dropdown>
+
+
+                    <div style="height:5px;">
+                        <ng-container *ngIf="form['dept'].invalid && (form['dept'].touched || form['dept'].dirty)">
+                            <p style="color:red;" *ngIf="form['dept'].errors?.required"> department is required</p>
+                        </ng-container>
+                    </div>
                 </div>
             </div>
-           </div>
-           <div class="row">
+        </div>
+        <div class="row">
             <div class="col inputs">
                 <div class="field">
                     <label for="phonenumber" class="block">Phone number</label>
-                    <input name="phonenumber" type="username" aria-describedby="username2-help" formControlName="phonenumber" placeholder="Phone number" class="ng-dirty" pInputText />
-       
-       
-                    <!-- <p-inputNumber name="phonenumber" placeholder="Phone number" formControlName="phonenumber" mode="decimal" inputId="withoutgrouping" [useGrouping]="false"></p-inputNumber> -->
+                    <input name="phonenumber" minlength="10" maxlength="10" type="username"
+                        aria-describedby="username2-help" formControlName="phonenumber" placeholder="Phone number"
+                        class="ng-dirty" pInputText />
+
+                    <div style="height:5px;">
+                        <ng-container
+                            *ngIf="form['phonenumber'].invalid && (form['phonenumber'].touched || form['phonenumber'].dirty)">
+                            <p style="color:red;" *ngIf="form['phonenumber'].errors?.required"> phonenumber is required
+                            </p>
+                            <p style="color:red" *ngIf="form['type'].errors?.minlength">minlength is 10</p>
+                        </ng-container>
+                    </div>
                 </div>
             </div>
-           </div>
-           <div class="row">
+        </div>
+        <div class="row">
             <div class="col inputs">
                 <div class="field">
                     <label for="Address" class="block">Address</label>
-                    <input name="Address" type="username" aria-describedby="username2-help" formControlName="Address" placeholder="Address" class="ng-dirty" pInputText />
+                    <input name="Address" type="username" aria-describedby="username2-help" formControlName="Address"
+                        placeholder="Address" class="ng-dirty" pInputText />
+
+                    <div style="height:5px;">
+                        <ng-container
+                            *ngIf="form['Address'].invalid && (form['Address'].touched || form['Address'].dirty)">
+                            <p style="color:red;" *ngIf="form['Address'].errors?.required"> Address is required</p>
+                        </ng-container>
+                    </div>
                 </div>
             </div>
-           </div>
-           <div class="row">
-            <div class="col-6"></div>
-            <div class="col-6 buttons">
-                <p-button  label="Submit" pTooltip="Submit Form" (click)="submitform($event)"></p-button>
+        </div>
+        <div class="row">
+            <div class="col button1">
+                <p-button label="Cancel" id="btn1" [style]="" (click)="cancelform()"></p-button>
+                <p-button label="Submit" id="btn2" (click)="submitform($event)"></p-button>
             </div>
-          </div>
+        </div>
     </div>
- </p-sidebar>
+</p-sidebar>
+
+
+
+<p-sidebar [(visible)]="tabledata"  position="right" [style]="{width:'26em'}" [baseZIndex]="10000">
+    <div class="tableview">
+        <p>STUDENT TABLE DATA</p>
+    </div>
+    <div class="viewdata">
+        <span>Student Name:</span>
+        <p>{{tablestudent.name}}</p>
+    </div>
+    <div class="viewdata">
+        <span>Age:</span>
+        <p>{{tablestudent.age}}</p>
+    </div>
+    <div class="viewdata">
+        <span>Department:</span>
+        <p>{{tablestudent.deptName}}</p>
+    </div>
+    <div class="viewdata">
+        <span>PhoneNumber:</span>
+        <p>{{tablestudent.phonenumber}}</p>
+    </div>
+    <div class="viewdata">
+        <span>Address:</span>
+        <p>{{tablestudent.address}}</p>
+    </div>
+    <div class="btnsdown">
+        <button pButton pRipple type="button" label="Cancel" (click)="cancel()" class="p-button-success" style="margin-top:40px;"></button>
+        <button pButton pRipple type="button" label="Download" (click)="exportPdf()" class="p-button-secondary"></button>
+    </div>
+</p-sidebar>
+

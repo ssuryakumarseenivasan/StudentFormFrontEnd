@@ -29,4 +29,6 @@ export class AppServiceService {
     console.log(id, "gokulkannan");
     return this.httpclient.put(environment.appUrl + "/Student/deleteStudents", { id });
   }
+
 }
+

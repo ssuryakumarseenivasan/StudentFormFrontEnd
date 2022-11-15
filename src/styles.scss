@@ -5,12 +5,33 @@
 
 
 .buttons {
+   
     button.p-ripple.p-element.p-button.p-component {
         width: 150px;
-        height: 40px;
-        border-radius: 0%;
         margin-right: 4px;
+        margin-left: 180px;
+        border-radius: 5px;
+        height: 45px;
+    }
+}
 
+.button1 {
+    #btn1 {
+        button.p-ripple.p-element.p-button.p-component {
+            background-color: white;
+            border: 1px solid blue;
+            color: blue;
+        }
+    }
+    #btn2{
+        button.p-ripple.p-element.p-button.p-component {
+            background-color: blue;
+            border: 1px solid blue;
+            margin-left: 24px;
+        }
+    }
+    button.p-ripple.p-element.p-button.p-component {
+        width: 150px;
     }
 }
 
@@ -23,6 +44,7 @@
     width: 350px;
     height: 45px;
 }
+
 .p-dropdown .p-dropdown-label.p-placeholder {
     color: #6c757d;
     // padding-top: 10px;
@@ -60,4 +82,48 @@ button.p-element.btn2.p-button.p-component {
 
 .card {
     border: none;
+}
+
+
+.sidebar {
+
+    input#username2 {
+        border: 1px solid #c5cace;
+    }
+
+    input#age {
+        border: 1px solid #c5cace;
+    }
+
+    input#department {
+        border: 1px solid #c5cace;
+    }
+
+    input.p-inputtext.p-component.p-element.ng-dirty.ng-untouched.ng-pristine.ng-invalid {
+        border: 1px solid #c5cace;
+    }
+
+    p.ng-star-inserted {
+        height: 0px;
+        font-size: 12px;
+        padding: 2px;
+        margin-right: 5px;
+    }
+
+}
+
+
+.btnsdown {
+
+    margin-left: 40px;
+    margin-top: 200px;
+
+    button.p-element.p-button-secondary.p-button.p-component {
+        width: 116px;
+    }
+
+    button.p-element.p-button-success.p-button.p-component {
+        width: 110px;
+        margin-right: 30px;
+    }
 }
