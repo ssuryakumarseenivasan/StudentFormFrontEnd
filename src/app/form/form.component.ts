@@ -210,6 +210,7 @@ export class FormComponent implements OnInit {
     console.log(this.exportdata,"surya")
     import("jspdf").then(jsPDF => {
       import("jspdf-autotable").then(x => {
+        console.log("insideeeeeeeeeeee")
         const doc = new jsPDF.default();
         doc.setPage(this.tablestudent)
         // doc.(this.tablestudent);
