@@ -127,3 +127,38 @@ button.p-element.btn2.p-button.p-component {
         margin-right: 30px;
     }
 }
+
+.reg{
+    /* You can add global styles to this file, and also import other style files */
+
+
+input#email {
+    width: 300px;
+    height: 40px;
+    margin-left: 33px;
+    // margin-: 20px;
+}
+
+
+button.p-ripple.p-element.p-button.p-component {
+    width: 301px;
+    height: 40px;
+    margin-left: 20px;
+    margin-top: 50px;
+}
+}
+
+input.p-inputtext.p-component.p-element.ng-tns-c97-0 {
+    width: 301px;
+    height: 40px;
+    margin-left: 20px;
+}
+
+.p-input-icon-right > .p-inputtext ::before {
+    padding-right: 90px !important;
+}
+.pi-eye:before {
+    content: "\e966";
+    /* margin-right: -59px; */
+    margin-left: -30px;
+}

@@ -26,9 +26,15 @@ export class AppServiceService {
     return this.httpclient.put(environment.appUrl + "/Student/updateStudent",data);
   }
   deleteStudent(id: any) {
-    console.log(id, "gokulkannan");
     return this.httpclient.put(environment.appUrl + "/Student/deleteStudents", { id });
   }
 
+  insertuser(data: any) {
+    return this.httpclient.post(environment.appUrl + "/Register/insertusers", data);
+  }
+  
+  verifyuser(data: any) {
+    return this.httpclient.put(environment.appUrl + "/Register/getusers", data);
+  }
 }
 

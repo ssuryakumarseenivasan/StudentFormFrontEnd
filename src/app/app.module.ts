@@ -25,6 +25,14 @@ import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import {InputNumberModule} from 'primeng/inputnumber';
 import { ListComponent } from './list/list.component';
 import { NgxUiLoaderConfig, NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import { RegisterComponent } from './register/register.component';
+import {PasswordModule} from 'primeng/password';
+import { ConfirmationService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { MessagesModule } from 'primeng/messages';
+import { ActivationComponent } from './activation/activation.component';
+import { LoginComponent } from './login/login.component';
+import { ResponseComponent } from './response/response.component';
   
 const ngx: NgxUiLoaderConfig = {
   "bgsColor": "red",
@@ -65,7 +73,11 @@ const ngx: NgxUiLoaderConfig = {
   declarations: [
     AppComponent,
     FormComponent,
-    ListComponent
+    ListComponent,
+    RegisterComponent,
+    ActivationComponent,
+    LoginComponent,
+    ResponseComponent
   ],
   imports: [
     ToggleButtonModule,
@@ -87,15 +99,18 @@ const ngx: NgxUiLoaderConfig = {
     BrowserAnimationsModule,
     InputTextModule,
     ButtonModule,
+    PasswordModule,
     SidebarModule,
     TooltipModule,
     DynamicDialogModule,
     InputNumberModule,
+    ConfirmDialogModule,
+    MessagesModule,
     NgxUiLoaderHttpModule.forRoot({ showForeground: true }),
     NgxUiLoaderModule.forRoot(ngx),
 
     ],
-    providers: [],
+  providers: [ConfirmationService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

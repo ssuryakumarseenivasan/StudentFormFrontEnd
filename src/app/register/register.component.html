@@ -1,0 +1,31 @@
+<div class="reg">
+    <div class="row form" [formGroup]="users">
+        <div class="row">
+            <div class="row">
+                    <label for="email"class="block">Email Id</label>
+                    <input id="email" type="email"  formControlName="username" placeholder="Email Id" pInputText />
+                    <div style="height:5px;margin-left:20px;">
+                        <ng-container *ngIf="form['username'].invalid && (form['username'].touched || form['username'].dirty)">
+                            <p style="color:red;" *ngIf="form['username'].errors?.required"> Email is
+                                required</p>
+                        </ng-container>
+                    </div>
+            </div>
+            <div class="row">
+                    <label for="pass"  type="password" class="block">Password</label>
+                    <p-password  name="pass" formControlName="password" type="password" [feedback]="false" [toggleMask]="true" placeholder="Password"></p-password>
+                    <div style="height:5px;margin-left:20px;">
+                        <ng-container *ngIf="form['password'].invalid && (form['password'].touched || form['password'].dirty)">
+                            <p style="color:red;" *ngIf="form['password'].errors?.required"> password is
+                                required</p>
+                        </ng-container>
+                    </div>
+            </div>
+        </div>
+        <div class="row submit">
+            <div>
+                <p-button label="SIGNUP" (click)="signup()" ></p-button>
+            </div>
+        </div>
+    </div>
+</div>
