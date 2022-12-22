@@ -4,7 +4,7 @@ import { FormComponent } from './form/form.component';
 import { RegisterComponent } from './register/register.component';
 import { ActivationComponent } from './activation/activation.component';
 import { LoginComponent } from './login/login.component';
-
+import { ForgetComponent } from './forget/forget.component';
 const routes: Routes = [
   {
     path:"form",
@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path:"login",
     component:LoginComponent,
+  },
+  {
+    path:"forget",
+    component:ForgetComponent,
   }
 ];
 

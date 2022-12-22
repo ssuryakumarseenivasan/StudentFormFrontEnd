@@ -36,5 +36,8 @@ export class AppServiceService {
   verifyuser(data: any) {
     return this.httpclient.put(environment.appUrl + "/Register/getusers", data);
   }
+  login(data: any) {
+    return this.httpclient.put(environment.appUrl + "/Register/login", data);
+  }
 }
 

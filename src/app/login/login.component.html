@@ -1,1 +1,40 @@
-<p>login works!</p>
+<div class="reg">   
+    <p-toast class="" position="top-center"      key="bc"></p-toast>
+    <p-toast class="" position="top-center"      key="kc"></p-toast>
+
+
+    <div class="row form" [formGroup]="users">
+        <p class="head">LOGIN</p>
+        <div class="row">
+            <div class="row">
+                    <label for="email"class="block">Email Id</label>
+                    <input id="email" type="email"  formControlName="username" placeholder="Email Id" pInputText />
+                    <div style="height:5px;margin-left:20px;">
+                        <ng-container *ngIf="form['username'].invalid && (form['username'].touched || form['username'].dirty)">
+                            <p style="color:red;" *ngIf="form['username'].errors?.required"> Email is
+                                required</p>
+                        </ng-container>
+                    </div>
+            </div>
+            <div class="row">
+                    <label for="pass"  type="password" class="block">Password</label>
+                    <p-password  name="pass" formControlName="password" type="password" [feedback]="false" [toggleMask]="true" placeholder="Password"></p-password>
+                    <div style="height:5px;margin-left:20px;">
+                        <ng-container *ngIf="form['password'].invalid && (form['password'].touched || form['password'].dirty)">
+                            <p style="color:red;" *ngIf="form['password'].errors?.required"> password is
+                                required</p>
+                        </ng-container>
+                    </div>
+            </div>
+        </div>
+        <div class="row">
+            <a href="http://localhost:5400/forget" style="padding-left:30px;padding-top:15px;">Forget Your Password</a>
+        </div>
+        <div class="row submit">
+            <div>
+                <p-button label="LOGIN" (click)="login()" ></p-button>
+            </div>
+        </div>
+    </div>
+</div>
+

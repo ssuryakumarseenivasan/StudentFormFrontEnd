@@ -32,7 +32,6 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { MessagesModule } from 'primeng/messages';
 import { ActivationComponent } from './activation/activation.component';
 import { LoginComponent } from './login/login.component';
-import { ResponseComponent } from './response/response.component';
   
 const ngx: NgxUiLoaderConfig = {
   "bgsColor": "red",
@@ -77,7 +76,6 @@ const ngx: NgxUiLoaderConfig = {
     RegisterComponent,
     ActivationComponent,
     LoginComponent,
-    ResponseComponent
   ],
   imports: [
     ToggleButtonModule,

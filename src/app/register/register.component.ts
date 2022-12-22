@@ -38,22 +38,30 @@ export class RegisterComponent implements OnInit {
 
 
   signup() {
-    console.log(this.users.value, 'dscsdsdcs');
+    // console.log(this.users.value, 'dscsdsdcs');
     this.appservice.insertuser(this.users.value).subscribe({
       next: (data: any) => {
-        data.false(this.router.navigate(['login']),
-          console.log("Error")
-        );
-        data.true(this.router.navigate(['active']),
-          console.log("success")
-        )
+        if (data == false) {
+          this.messageservice.add({ key: 'bc', severity: 'error', summary: 'Rejected', detail: 'Please Check Email and Password', sticky: true });
+          console.log("Error");
+          // this.router.navigate(['login'])  ;
+        }
+        else {
+          this.messageservice.add({ key: 'kc', severity: 'success', summary: 'Success', detail: 'Please Check Your Mail' });
+          setTimeout(() => {
+              this.router.navigate(['form']);
+              console.log("success");
+          }, 2000);
 
-    this.messageservice.add({ severity: 'info', summary: 'Confirmed', detail: 'Signup Succesfully' });
-  },
-  error: (error) => {
-        console.log(error,"errrrrrrrrrr");
-        this.messageservice.add({ severity: 'info', summary: 'Rejected', detail: 'Verify Username and PassWord' })
+        }
+        // this.messageservice.add({ severity: 'info', summary: 'Confirmed', detail: 'Signup Succesfully' });
+      },
+      error: (error) => {
+        console.log(error, "errrrrrrrrrr");
+        this.messageservice.add({ severity: 'info', summary: 'Rejected', detail: 'Verify Username and Password' })
       }
     })
   }
+
+
 }
