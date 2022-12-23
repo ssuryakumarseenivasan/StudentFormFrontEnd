@@ -36,18 +36,9 @@ export class FormComponent implements OnInit {
 
   constructor(private primengConfig: PrimeNGConfig, private fb: FormBuilder, private confirmationService: ConfirmationService, private router: Router, private messageService: MessageService, private appservice: AppServiceService, private aRoute: ActivatedRoute) { }
   ngOnInit(): void {
-
-    // this.tablestudent.getProductsSmall().then((data: any) => this.tabledata = data);
-    // console.log("table dataaaaaaa",this.tabledata);
-    // this.exportdata = this.tablestudent?.map({studentname : this.tablestudent.name},
-    //   {Age : this.tablestudent.age},{Department : this.tablestudent.deptName},{Contect : this.tablestudent.phonenumber},
-    //   {Address : this.tablestudent.address});
-
-
-
+    
     this.appservice.getDept().subscribe((data: any) => {
       this.items = data
-      console.log(this.items, "deptdata")
     });
 
     this.getTableData()
@@ -68,7 +59,6 @@ export class FormComponent implements OnInit {
   getTableData() {
     this.appservice.getStudents().subscribe((data: any) => {
       this.studentsList = data
-      console.log(this.studentsList, "studentData")
     });
   }
 
@@ -82,14 +72,10 @@ export class FormComponent implements OnInit {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.studeid = studentid;
-        console.log(studentid)
         this.appservice.deleteStudent(this.studeid).subscribe({
           next: (data: any) => {
-            console.log(data);
-
             this.appservice.getStudents().subscribe({
               next: (data: any) => {
-                console.log(data);
                 setTimeout(() => {
                   this.getTableData();
                 }, 1000);
@@ -130,7 +116,6 @@ export class FormComponent implements OnInit {
               this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'Student Created Successfully' });
             },
             error: () => {
-              console.log("errrrrrrrrrr ====   ");
               this.visibleSidebar2 = false;
               this.messageService.add({ severity: 'info', summary: 'Error', detail: 'Resubmit form' });
             }
@@ -139,10 +124,8 @@ export class FormComponent implements OnInit {
         }
         else {
           this.students.value['id'] = this.userId;
-          console.log(this.students.value, 'formvalue')
           this.appservice.updateStudents(this.students.value).subscribe({
             next: (data: any) => {
-              console.log('its coming');
               this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'Successfully Student Data Updated' });
               this.visibleSidebar2 = false;
               setTimeout(() => {
@@ -152,7 +135,6 @@ export class FormComponent implements OnInit {
               this.students.reset();
             },
             error: () => {
-              console.log("errrrrrrrrrr ====   ");
               this.visibleSidebar2 = false;
               this.messageService.add({ severity: 'info', summary: 'Error', detail: 'Resubmit form' });
             }
@@ -170,7 +152,6 @@ export class FormComponent implements OnInit {
   updateStudent(student: any, id: any) {
     this.partialType = "edit"
     this.visibleSidebar2 = true
-    console.log(student, 'lllllllllllllllllllll');
     this.userId = student.id
     this.students.patchValue({
       name: student.name,
@@ -187,12 +168,9 @@ export class FormComponent implements OnInit {
   }
 
   gettable(student: any) {
-    console.log(student, "student table data")
     this.tabledata = true;
     this.tableid = student.id;
-    console.log("studenttable id", this.tableid)
     this.tablestudent = student
-    console.log(this.tablestudent, "tablestudent")
   }
   cancel() {
     this.tabledata = false;
@@ -206,11 +184,8 @@ export class FormComponent implements OnInit {
   }
 
   exportPdf() {
-    console.log(this.tablestudent, "kdshoifdahadfoii")
-    console.log(this.exportdata,"surya")
     import("jspdf").then(jsPDF => {
       import("jspdf-autotable").then(x => {
-        console.log("insideeeeeeeeeeee")
         const doc = new jsPDF.default();
         doc.setPage(this.tablestudent)
         // doc.(this.tablestudent);

@@ -14,10 +14,10 @@ export class ActivationComponent implements OnInit {
   constructor(private appservice:AppServiceService,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-      
-    this.result = this.route.snapshot.queryParams;
-    console.log(this.result,"result")
 
+    this.result = this.route.snapshot.queryParams;
+    this.verifyuser();
+    
   }
 
   verifyuser(){

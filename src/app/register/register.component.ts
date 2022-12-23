@@ -38,26 +38,20 @@ export class RegisterComponent implements OnInit {
 
 
   signup() {
-    // console.log(this.users.value, 'dscsdsdcs');
     this.appservice.insertuser(this.users.value).subscribe({
       next: (data: any) => {
         if (data == false) {
           this.messageservice.add({ key: 'bc', severity: 'error', summary: 'Rejected', detail: 'Please Check Email and Password', sticky: true });
-          console.log("Error");
-          // this.router.navigate(['login'])  ;
         }
         else {
           this.messageservice.add({ key: 'kc', severity: 'success', summary: 'Success', detail: 'Please Check Your Mail' });
           setTimeout(() => {
-              this.router.navigate(['form']);
-              console.log("success");
+              this.router.navigate(['activatepage']);
           }, 2000);
 
         }
-        // this.messageservice.add({ severity: 'info', summary: 'Confirmed', detail: 'Signup Succesfully' });
       },
       error: (error) => {
-        console.log(error, "errrrrrrrrrr");
         this.messageservice.add({ severity: 'info', summary: 'Rejected', detail: 'Verify Username and Password' })
       }
     })
