@@ -6,10 +6,13 @@ import { ActivationComponent } from './activation/activation.component';
 import { LoginComponent } from './login/login.component';
 import { ForgetComponent } from './forget/forget.component';
 import { ActivepageComponent } from './activepage/activepage.component';
+import { YGuard } from './app.guard';
 const routes: Routes = [
+
   {
     path:"form",
     component:FormComponent,
+    canActivate : [YGuard]
   },
   {
     path:"signup",

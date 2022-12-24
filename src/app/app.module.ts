@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
@@ -33,6 +33,7 @@ import { MessagesModule } from 'primeng/messages';
 import { ActivationComponent } from './activation/activation.component';
 import { LoginComponent } from './login/login.component';
 import { ActivepageComponent } from './activepage/activepage.component';
+import { AppInterceptor } from './app.interceptor';
   
 const ngx: NgxUiLoaderConfig = {
   "bgsColor": "red",
@@ -110,7 +111,8 @@ const ngx: NgxUiLoaderConfig = {
     NgxUiLoaderModule.forRoot(ngx),
 
     ],
-  providers: [ConfirmationService],
+  providers: [ConfirmationService,
+    { provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true }],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
