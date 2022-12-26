@@ -179,23 +179,7 @@ export class FormComponent implements OnInit {
   cancelform() {
     this.visibleSidebar2 = false;
   }
-
-  downloaddata() { }
-
-  exportPdf() {
-    import("jspdf").then(jsPDF => {
-      import("jspdf-autotable").then(x => {
-        const doc = new jsPDF.default();
-        doc.setPage(this.tablestudent)
-        // doc.(this.tablestudent);
-        // doc.addField(this.exportdata)
-        doc.setFillColor("red")
-        doc.save('student.pdf');
-      })
-    })
-  }
-
-
+ 
   logout() {
 
     var data = localStorage.getItem('token');
