@@ -181,18 +181,7 @@ export class FormComponent implements OnInit {
   }
  
   logout() {
-
     var data = localStorage.getItem('token');
     console.log(data,'data');
-    // this.appservice.logout(data).subscribe({
-    //   next: () => {
-    //     this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'LogOut Successfully' });
-    //     localStorage.clear();
-    //     setTimeout(() => {this.router.navigate(["login"])}, 1000);
-    //   },
-    //   error: () => {
-
-    //   }
-    // })
   }
 }
