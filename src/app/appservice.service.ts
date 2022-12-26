@@ -40,6 +40,9 @@ export class AppServiceService {
     return this.httpclient.put(environment.appUrl + "/Register/login", data);
   }
 
+  logout(data :any){
+    return this.httpclient.put(environment.appUrl + "/Register/logout",data);
+  }
 
 }
 

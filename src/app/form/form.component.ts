@@ -180,7 +180,7 @@ export class FormComponent implements OnInit {
     this.visibleSidebar2 = false;
   }
 
-  downloaddata() {}
+  downloaddata() { }
 
   exportPdf() {
     import("jspdf").then(jsPDF => {
@@ -197,7 +197,18 @@ export class FormComponent implements OnInit {
 
 
   logout() {
-    localStorage.clear();
-    this.router.navigate(["login"]);
+
+    var data = localStorage.getItem('token');
+    console.log(data,'data');
+    // this.appservice.logout(data).subscribe({
+    //   next: () => {
+    //     this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'LogOut Successfully' });
+    //     localStorage.clear();
+    //     setTimeout(() => {this.router.navigate(["login"])}, 1000);
+    //   },
+    //   error: () => {
+
+    //   }
+    // })
   }
 }
