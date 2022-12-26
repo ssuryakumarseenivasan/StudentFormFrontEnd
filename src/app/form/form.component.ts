@@ -180,9 +180,7 @@ export class FormComponent implements OnInit {
     this.visibleSidebar2 = false;
   }
 
-  downloaddata() {
-
-  }
+  downloaddata() {}
 
   exportPdf() {
     import("jspdf").then(jsPDF => {
@@ -195,7 +193,6 @@ export class FormComponent implements OnInit {
         doc.save('student.pdf');
       })
     })
-
   }
 
 
