@@ -7,6 +7,7 @@ import { AppServiceService } from '../appservice.service';
 import { autoTable } from 'jspdf-autotable';
 import { map } from 'rxjs/operators';
 import * as  jsPDF from 'jspdf';
+import { Token } from '@angular/compiler';
 
 
 @Component({
@@ -19,7 +20,7 @@ import * as  jsPDF from 'jspdf';
 export class FormComponent implements OnInit {
 
   visibleSidebar2: any;
-
+  logouttoken: any;
   students: any;
   listStudent: any;
   studentsList: any;
@@ -36,7 +37,7 @@ export class FormComponent implements OnInit {
 
   constructor(private primengConfig: PrimeNGConfig, private fb: FormBuilder, private confirmationService: ConfirmationService, private router: Router, private messageService: MessageService, private appservice: AppServiceService, private aRoute: ActivatedRoute) { }
   ngOnInit(): void {
-    
+
     this.appservice.getDept().subscribe((data: any) => {
       this.items = data
     });
@@ -194,11 +195,12 @@ export class FormComponent implements OnInit {
         doc.save('student.pdf');
       })
     })
-    
+
   }
 
 
-  logout(){
-    
+  logout() {
+    localStorage.clear();
+    this.router.navigate(["login"]);
   }
 }

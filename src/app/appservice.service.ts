@@ -39,5 +39,7 @@ export class AppServiceService {
   login(data: any) {
     return this.httpclient.put(environment.appUrl + "/Register/login", data);
   }
+
+
 }
 
