@@ -12,7 +12,7 @@
                     <input id="email" type="email"  formControlName="username" placeholder="Email Id" pInputText />
                     <div style="height:5px;margin-left:20px;">
                         <ng-container *ngIf="form['username'].invalid && (form['username'].touched || form['username'].dirty)">
-                            <p style="color:red;" *ngIf="form['username'].errors?.required"> Email is
+                            <p style="color:rgb(255, 0, 0);" *ngIf="form['username'].errors?.required"> Email is
                                 required</p>
                         </ng-container>
                     </div>
