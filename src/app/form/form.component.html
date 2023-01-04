@@ -12,7 +12,15 @@
 
     <div class="row table">
         <div class="card">
-            <p-table [value]="studentsList" [scrollable]="true" scrollHeight="400px">
+            <p-table [value]="studentsList" [scrollable]="true" 
+            [globalFilterFields]="[
+            'student.name',
+            'student.age',
+            'student.deptName',
+            'student.phonenumber',
+            'student.address'
+          ]"
+              scrollHeight="400px">
                 <ng-template pTemplate="header">
                     <tr class="table_head">
                         <th style="min-width:30px">Student Name</th>

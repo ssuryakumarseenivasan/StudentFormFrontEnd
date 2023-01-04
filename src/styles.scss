@@ -5,7 +5,7 @@
 
 
 .buttons {
-   
+
     button.p-ripple.p-element.p-button.p-component {
         width: 100px;
         margin-right: 4px;
@@ -23,13 +23,15 @@
             color: blue;
         }
     }
-    #btn2{
+
+    #btn2 {
         button.p-ripple.p-element.p-button.p-component {
             background-color: blue;
             border: 1px solid blue;
             margin-left: 24px;
         }
     }
+
     button.p-ripple.p-element.p-button.p-component {
         width: 150px;
     }
@@ -128,24 +130,24 @@ button.p-element.btn2.p-button.p-component {
     }
 }
 
-.reg{
+.reg {
     /* You can add global styles to this file, and also import other style files */
 
 
-input#email {
-    width: 300px;
-    height: 40px;
-    margin-left: 30px;
-    // margin-: 20px;
-}
+    input#email {
+        width: 300px;
+        height: 40px;
+        margin-left: 30px;
+        // margin-: 20px;
+    }
 
 
-button.p-ripple.p-element.p-button.p-component {
-    width: 301px;
-    height: 40px;
-    margin-left: 20px;
-    margin-top: 45px;
-}
+    button.p-ripple.p-element.p-button.p-component {
+        width: 301px;
+        height: 40px;
+        margin-left: 20px;
+        margin-top: 45px;
+    }
 }
 
 input.p-inputtext.p-component.p-element.ng-tns-c97-0 {
@@ -154,9 +156,10 @@ input.p-inputtext.p-component.p-element.ng-tns-c97-0 {
     margin-left: 20px;
 }
 
-.p-input-icon-right > .p-inputtext ::before {
+.p-input-icon-right>.p-inputtext ::before {
     padding-right: 90px !important;
 }
+
 .pi-eye:before {
     content: "\e966";
     /* margin-right: -59px; */
@@ -168,4 +171,19 @@ input.p-inputtext.p-component.p-element.ng-tns-c97-2 {
     width: 300px;
     margin-left: 20px;
     height: 40px;
+}
+
+
+.foret {
+    input.p-inputtext.p-component.p-element {
+        width: 300px;
+        height: 35px;
+        border: 1px solid black;
+    }
+
+    button.p-element.p-button.p-component {
+        width: 299px;
+        height: 35px;
+        margin-top: 30px;
+    }
 }

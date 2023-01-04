@@ -34,6 +34,8 @@ import { ActivationComponent } from './activation/activation.component';
 import { LoginComponent } from './login/login.component';
 import { ActivepageComponent } from './activepage/activepage.component';
 import { AppInterceptor } from './app.interceptor';
+import { Forgetpassword1Component } from './forgetpassword1/forgetpassword1.component';
+import { Forgetpassword2Component } from './forgetpassword2/forgetpassword2.component';
   
 const ngx: NgxUiLoaderConfig = {
   "bgsColor": "red",
@@ -79,6 +81,8 @@ const ngx: NgxUiLoaderConfig = {
     ActivationComponent,
     LoginComponent,
     ActivepageComponent,
+    Forgetpassword1Component,
+    Forgetpassword2Component,
   ],
   imports: [
     ToggleButtonModule,

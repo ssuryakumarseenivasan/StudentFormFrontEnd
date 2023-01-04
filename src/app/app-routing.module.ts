@@ -7,6 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { ForgetComponent } from './forget/forget.component';
 import { ActivepageComponent } from './activepage/activepage.component';
 import { YGuard } from './app.guard';
+import { Forgetpassword1Component } from './forgetpassword1/forgetpassword1.component';
+import { Forgetpassword2Component } from './forgetpassword2/forgetpassword2.component';
 const routes: Routes = [
 
   {
@@ -17,6 +19,14 @@ const routes: Routes = [
   {
     path:"signup",
     component:RegisterComponent,
+  },
+  {
+    path:"forgetpass",
+    component:Forgetpassword2Component,
+  },
+  {
+    path:"forgetemail",
+    component:Forgetpassword1Component,
   },
   {
     path:"active/:token",
