@@ -4,10 +4,10 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ConfirmationService, ConfirmEventType, MessageService } from 'primeng/api';
 import { ActivatedRoute, Router, TitleStrategy } from '@angular/router';
 import { AppServiceService } from '../appservice.service';
-import { autoTable } from 'jspdf-autotable';
-import { map } from 'rxjs/operators';
-import * as  jsPDF from 'jspdf';
-import { Token } from '@angular/compiler';
+// import { autoTable } from 'jspdf-autotable';
+// import { map } from 'rxjs/operators';
+// import * as  jsPDF from 'jspdf';
+// import { Token } from '@angular/compiler';
 
 
 @Component({
@@ -40,6 +40,7 @@ export class FormComponent implements OnInit {
 
     this.appservice.getDept().subscribe((data: any) => {
       this.items = data
+      console.log(this.items,"dropdown")
     });
 
     this.getTableData()
@@ -178,6 +179,7 @@ export class FormComponent implements OnInit {
   }
   cancelform() {
     this.visibleSidebar2 = false;
+    this.students.reset();
   }
  
   logout() {
