@@ -34,6 +34,7 @@ export class FormComponent implements OnInit {
   tabledata: any;
   exportdata: any = [];
   cols: any = []
+  tokens : any
 
   constructor(private primengConfig: PrimeNGConfig, private fb: FormBuilder, private confirmationService: ConfirmationService, private router: Router, private messageService: MessageService, private appservice: AppServiceService, private aRoute: ActivatedRoute) { }
   ngOnInit(): void {
@@ -182,8 +183,35 @@ export class FormComponent implements OnInit {
     this.students.reset();
   }
  
-  logout() {
-    var data = localStorage.getItem('token');
-    console.log(data,'data');
-  }
+
+  logoutfunction(){
+    this.tokens = localStorage.getItem('token');
+    const delimiter: string = '.';
+    var substrings: string[] = this.tokens.split(delimiter);
+    var ftoken : string = atob(substrings[1]);
+    var token = JSON.parse(ftoken).id;
+    // var token = JSON.stringify((JSON.parse(ftoken).id));
+
+    var data = { "token": token}
+
+    console.log(this.tokens);
+    console.log(delimiter);
+    console.log(substrings);
+    console.log(ftoken);
+    console.log(token);
+    console.log(data);
+
+    console.log(data,"token");
+    this.appservice.logout(data).subscribe({
+      next : (next: any) => {
+        localStorage.removeItem('token');
+        this.router.navigate(["login"]);
+        window.location.reload();
+      },
+      error : () =>{
+        
+      }
+    })
+    }
+
 }

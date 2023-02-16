@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 // import { Result } from 'express-validator';
 
 @Injectable({
@@ -40,8 +40,8 @@ export class AppServiceService {
     return this.httpclient.put(environment.appUrl + "/Register/login", data);
   }
 
-  logout(data :any){
-    return this.httpclient.put(environment.appUrl + "/Register/logout",data);
+  logout(token :any){
+    return this.httpclient.put(environment.appUrl + "/Register/logoutapi",token);
   }
 
 }

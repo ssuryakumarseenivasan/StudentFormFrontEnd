@@ -40,8 +40,10 @@ export class LoginComponent implements OnInit {
         this.token = data.token;
       localStorage.setItem('token',this.token);
       this.router.navigate(["form"]);
-      }else{
-        this.messageservice.add({ severity: 'info', summary: 'Rejected', detail: 'Verify Username and Password' })
+      }
+      else
+      {
+        this.messageservice.add({severity:'info', summary: 'Sticky', detail: 'Verify Username and Password', sticky: true});
       }
     })
   }

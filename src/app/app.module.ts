@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {ConfirmPopupModule} from 'primeng/confirmpopup';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA} from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {InputTextModule} from 'primeng/inputtext';
@@ -117,6 +117,10 @@ const ngx: NgxUiLoaderConfig = {
     ],
   providers: [ConfirmationService,
     { provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true }],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    schemas : [
+      CUSTOM_ELEMENTS_SCHEMA,
+      NO_ERRORS_SCHEMA
+    ]
 })
 export class AppModule { }
